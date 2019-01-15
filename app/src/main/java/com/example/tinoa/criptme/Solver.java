@@ -96,8 +96,7 @@ public class Solver {
 
         //Integer k = random.nextInt(p-2+1)+1;
         Integer k = 1520;
-
-        System.out.println(alpha);
+        alpha = compute(g, k, p);
         beta = (message * compute(g_a_mod_p, k, p)) % p;
 
         // cipher =message(alpha,beta)   ex: cipher =alpha+beta;
@@ -143,12 +142,14 @@ public class Solver {
             message.add(sequence.indexOf(s.charAt(0)) * 100 + sequence.indexOf(s.charAt(1)));
         }
 
-        StringBuilder result = new StringBuilder();
+        String result ="";
+
+        System.out.println(message);
         for(int i=0;i<message.size();i++){
-            result.append(plain(i));
+            result+=plain(i);
         }
 
-        return result.toString();
+        return result;
     }
 
     private String plain(Integer i) {
