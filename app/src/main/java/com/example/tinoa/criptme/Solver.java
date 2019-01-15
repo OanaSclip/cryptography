@@ -23,19 +23,12 @@ public class Solver {
         this.p = 2657;
         // TODO - not entirely sure but. Make generator randomly chosen idk range ( 2 - 9 ?)
         this.g = 2;
-        System.out.println("g^a mod p: ");
         this.g_a_mod_p = compute(g, a, p);
-        System.out.println("=======================");
         this.random = new Random();
         alpha_beta=new ArrayList<>();
     }
 
     private Integer compute(Integer a, Integer t, Integer n) {
-        System.out.print("compute: ");
-        System.out.print(a+" ");
-        System.out.print(t+" ");
-        System.out.println(n+" ");
-
         List<MyPair<Integer, Integer>> squaring_modular_values = new ArrayList<>();
         squaring_modular_values.add(new MyPair<>(1, a % n));
 
@@ -45,14 +38,12 @@ public class Solver {
             squaring_modular_values.add(new MyPair<>(i, (a * a) % n));
             a = squaring_modular_values.get(j).getValue();
         }
-        System.out.println(squaring_modular_values);
 
         Long result = Long.valueOf(1);
 
         for (int i = squaring_modular_values.size() - 1; i >= 0; i--) {
             if (squaring_modular_values.get(i).getKey() <= t) {
-                System.out.print(t+" ");
-                System.out.println(i);
+
                 t = t - squaring_modular_values.get(i).getKey();
                 result *= squaring_modular_values.get(i).getValue();
                 result=result%n;
