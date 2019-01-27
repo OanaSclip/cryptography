@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">El Gamal</string>
-    <string name="encrypt">Encrypt</string>
-    <string name="decrypt">Decrypt</string>
-    <string name="plaint_text">enter the plain text</string>
-    <string name="cipher_text">enter the cipher text</string>
-</resources>
